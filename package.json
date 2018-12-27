@@ -5,11 +5,9 @@
   "dependencies": {
     "@material-ui/core": "3.7.1",
     "crocks": "0.11.1",
-    "husky": "1.2.1",
-    "lint-staged": "8.1.0",
-    "prettier": "1.15.3",
     "react": "^16.7.0",
     "react-dom": "^16.7.0",
+    "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.2"
   },
   "scripts": {
@@ -40,6 +38,9 @@
     "not op_mini all"
   ],
   "devDependencies": {
+    "husky": "1.2.1",
+    "lint-staged": "8.1.0",
+    "prettier": "1.15.3",
     "react-testing-library": "5.4.2",
     "source-map-explorer": "1.6.0"
   }
