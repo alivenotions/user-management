@@ -8,7 +8,9 @@ import {
   Paper,
 } from '@material-ui/core'
 import { format, differenceInYears } from 'date-fns'
+
 import UserActions from './UserActions'
+
 import { USER_ACTIONS, TABLE_HEADERS } from '../../utils/constants/table-config'
 import { getFullName } from './helpers'
 
