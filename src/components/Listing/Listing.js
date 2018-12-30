@@ -3,7 +3,7 @@ import Grid from '@material-ui/core/Grid'
 
 import { http } from '../../utils/httpModule'
 import { logUrlError } from '../../utils/errorLogs'
-import { USERS_URL } from '../../utils/constants'
+import { USERS_URL } from '../../utils/constants/urls'
 import UserTable from './UserTable'
 
 class Listing extends Component {

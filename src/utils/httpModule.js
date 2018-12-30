@@ -3,7 +3,7 @@ import ifElse from 'crocks/logic/ifElse'
 import isString from 'crocks/predicates/isString'
 import { fromPromise, Rejected } from 'crocks/Async'
 
-import { BASE_URL } from './constants'
+import { BASE_URL } from './constants/urls'
 
 const instance = axios.create({
   baseURL: BASE_URL,
