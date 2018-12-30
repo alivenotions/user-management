@@ -16,9 +16,14 @@ class FilterBox extends Component {
       <form onSubmit={this.handleSubmit}>
         <TextField
           label="Search"
-          styles={{ width: '50em' }}
+          InputProps={{
+            inputProps: {
+              'data-testid': 'search',
+              'aria-label': 'Search',
+              onChange: this.handleChange,
+            },
+          }}
           value={value}
-          onChange={this.handleChange}
           margin="normal"
           variant="outlined"
         />

@@ -49,7 +49,7 @@ class Listing extends Component {
     const { users, filterText } = this.state
     const filteredUsers = this.filterUsersByText(users, filterText)
     return (
-      <Grid container spacing={16}>
+      <Grid container spacing={16} data-testid="listing">
         <Grid item xs={6}>
           <FilterBox handleFilterBoxChange={this.handleFilterBoxChange} />
         </Grid>
