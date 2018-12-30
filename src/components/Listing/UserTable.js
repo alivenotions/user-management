@@ -10,6 +10,7 @@ import {
 import { format, differenceInYears } from 'date-fns'
 import UserActions from './UserActions'
 import { USER_ACTIONS, TABLE_HEADERS } from '../../utils/constants/table-config'
+import { getFullName } from './helpers'
 
 const getActiveColorStyle = isActive => (isActive ? 'green' : 'red')
 const getActiveText = isActive => (isActive ? 'Active' : 'Inactive')
@@ -45,35 +46,32 @@ class UserTable extends Component {
             </TableRow>
           </TableHead>
           <TableBody>
-            {users.map(user => {
-              return (
-                <TableRow key={user.email}>
-                  <TableCell>
-                    {user.first_name + ' ' + user.last_name}
-                  </TableCell>
-                  <TableCell>
-                    {format(new Date(user.dob), 'DD-MM-YYYY')}
-                  </TableCell>
-                  <TableCell>
-                    {differenceInYears(Date.now(), new Date(user.dob)) +
-                      ' Years'}
-                  </TableCell>
-                  <TableCell>{user.email}</TableCell>
-                  <TableCell>{user.phone}</TableCell>
-                  <TableCell
-                    style={{
-                      color: getActiveColorStyle(user.active),
-                      fontWeight: 'bold',
-                    }}
-                  >
-                    {getActiveText(user.active)}
-                  </TableCell>
-                  <TableCell>
-                    <UserActions actions={userActions} isActive={user.active} />
-                  </TableCell>
-                </TableRow>
-              )
-            })}
+            {users.map(
+              ({ email, first_name, last_name, dob, phone, active }) => {
+                return (
+                  <TableRow key={email}>
+                    <TableCell>{getFullName(first_name, last_name)}</TableCell>
+                    <TableCell>{format(new Date(dob), 'DD-MM-YYYY')}</TableCell>
+                    <TableCell>
+                      {differenceInYears(Date.now(), new Date(dob)) + ' Years'}
+                    </TableCell>
+                    <TableCell>{email}</TableCell>
+                    <TableCell>{phone}</TableCell>
+                    <TableCell
+                      style={{
+                        color: getActiveColorStyle(active),
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      {getActiveText(active)}
+                    </TableCell>
+                    <TableCell>
+                      <UserActions actions={userActions} isActive={active} />
+                    </TableCell>
+                  </TableRow>
+                )
+              }
+            )}
           </TableBody>
         </Table>
       </Paper>
