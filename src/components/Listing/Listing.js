@@ -18,7 +18,7 @@ class Listing extends Component {
   componentDidMount() {
     http
       .GET(USERS_URL)
-      .map(res => res.data.users)
+      .map(res => Object.values(res.data.users))
       .fork(logUrlError, users => {
         localStorage.setItem('users', JSON.stringify(users))
         this.setState({ users })
