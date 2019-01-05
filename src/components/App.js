@@ -9,8 +9,7 @@ class App extends Component {
     return (
       <BrowserRouter>
         <Switch>
-          <Redirect from="/" exact to="/listing" />
-          <Route path="/listing" component={Listing} />
+          <Route path="/" component={Listing} />
           <Route path="/details/:email" component={Details} />
         </Switch>
       </BrowserRouter>
